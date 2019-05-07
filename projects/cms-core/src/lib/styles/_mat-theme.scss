@@ -1,0 +1,71 @@
+@import '~@angular/material/theming';
+@import './responsive';
+@import './shared';
+
+@mixin mat-light-theme($light-primary-palette, $light-accent-palette) {
+  $light-primary: $light-primary-palette;
+  $light-accent: $light-accent-palette;
+  $light-cms-theme: mat-light-theme($light-primary, $light-accent);
+  @include angular-material-theme($light-cms-theme);
+}
+
+@mixin mat-dark-theme($dark-primary-palette,$dark-accent-palette) {
+  $dark-primary: $dark-primary-palette;
+  $dark-accent: $dark-accent-palette;
+  $dark-cms-theme: mat-dark-theme($dark-primary, $dark-accent);
+  @include angular-material-theme($dark-cms-theme);
+}
+
+@mixin global-mat-cms-styles(
+  $light-primary-palette: mat-palette($mat-light-blue),
+  $light-accent-palette: mat-palette($mat-orange),
+  $dark-primary-palette: mat-palette($mat-blue, 700),
+  $dark-accent-palette: mat-palette($mat-purple)
+) {
+  @include mat-core();
+  @include mat-light-theme($light-primary-palette, $light-accent-palette);
+
+  .cms-dark-theme {
+    @include mat-dark-theme($dark-primary-palette, $dark-accent-palette);
+  }
+
+  cms-view {
+    font-family: $cms-font-family;
+    position: relative;
+    display: block;
+    height: 100vh;
+  }
+}
+
+@mixin global-cms-classes {
+  .cms-module-view {
+
+    display: block;
+    padding: 16px 32px;
+
+    @include cms-mq(sm) {
+      padding: 32px 32px;
+    }
+
+    @include cms-mq(lg) {
+      padding: 48px 48px;
+    }
+  }
+
+  .cms-module-title {
+    @extend .mat-h1;
+  }
+
+  .cms-inner-html {
+    font-family: $cms-font-family;
+  }
+
+  .cms-table-wrapper {
+    overflow-x: auto;
+
+    table {
+      width: 100%;
+      min-width: 600px;
+    }
+  }
+}

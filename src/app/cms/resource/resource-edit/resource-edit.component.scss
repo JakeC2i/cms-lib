@@ -1,0 +1,9 @@
+@import 'shared';
+
+.go-back {
+  margin-top: 16px;
+}
+
+mat-card-content {
+  @include flex();
+}

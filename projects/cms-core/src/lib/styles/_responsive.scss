@@ -1,0 +1,63 @@
+/**
+      General use mixins
+ */
+
+// Media query with provided breakpoints map
+@mixin media-query-from-map($breakpoints, $width, $type: min) {
+  @if map_has_key($breakpoints, $width) {
+    $width: map_get($breakpoints, $width);
+    @if $type == max {
+      $width: $width - 1px;
+    }
+    @media only screen and (#{$type}-width: $width) {
+      @content;
+    }
+  }
+}
+// Container width with provided widths map
+@mixin container-width-from-map($containers, $width) {
+  @if map_has_key($containers, $width) {
+    $width: map_get($containers, $width);
+    width: $width;
+  }
+}
+
+/**
+      CMS specific mixins
+ */
+
+$cms-breakpoints: (
+  "xs":        0px,
+  "sm":        576px,
+  "md":        768px,
+  "lg":        992px,
+  "xl":       1200px
+);
+$cms-containers: (
+  "xs":         90%,
+  "sm":        528px,
+  "md":        720px,
+  "lg":        944px,
+  "xl":       1140px
+);
+@mixin cms-mq($width, $type: min) {
+  @include media-query-from-map($cms-breakpoints, $width, $type) {
+    @content;
+  }
+}
+@mixin cms-cw($width) {
+  @include container-width-from-map($cms-containers, $width) {
+    @content;
+  }
+}
+
+
+// Media query for custom breakpoint
+//@mixin mqc($width, $type: min) {
+//  @if $type == max {
+//    $width: $width - 1px;
+//  }
+//  @media only screen and (#{$type}-width: $width) {
+//    @content;
+//  }
+//}

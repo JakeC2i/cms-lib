@@ -1,0 +1,10 @@
+@import '../../styles/shared';
+
+.wrapper {
+  @include fixed(0, 0, 0, 0);
+  @include flex-2-center;
+}
+
+mat-form-field {
+  display: block;
+}

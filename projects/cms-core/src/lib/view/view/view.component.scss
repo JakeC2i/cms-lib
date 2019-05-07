@@ -1,0 +1,26 @@
+@import '../../styles/utility';
+
+mat-sidenav-container {
+  height: 100%;
+}
+
+mat-sidenav {
+  // TODO extract width into ConfigService
+  width: 200px;
+
+  @include mat-nav-list-icon-pad;
+}
+
+mat-toolbar.mat-primary {
+  z-index: 1;
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+a:link, a:visited {
+  text-decoration: none;
+  color: inherit;
+}

@@ -1,2 +1,5 @@
-# ng-mat-app
-Angular Material Application Libraries
+# CMS Libraries
+
+Angular libraries:
+
+* `cms-core`

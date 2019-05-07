@@ -1,0 +1,27 @@
+<div class="wrapper">
+  <form [formGroup]="loginForm" (submit)="onFormSubmit();">
+    <mat-card>
+      <mat-card-title>
+        <span>{{config.translation.login.formTitle}}</span>
+      </mat-card-title>
+      <mat-card-content>
+        <mat-form-field hideRequiredMarker="true">
+          <input type="email" formControlName="email" matInput
+                 [placeholder]="config.translation.login.email" required/>
+        </mat-form-field>
+        <mat-form-field hideRequiredMarker="true">
+          <input type="password" formControlName="password" matInput
+                 [placeholder]="config.translation.login.password" required />
+        </mat-form-field>
+        <!--<mat-checkbox formControlName="keepMeLoggedIn">-->
+        <!--<span [appLocalizedLabel]="loc" label="KEEP_LOGGED_IN"></span>-->
+        <!--</mat-checkbox>-->
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid || !loginService.isConfigured">
+          <span>{{config.translation.login.actionLogIn}}</span>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+</div>

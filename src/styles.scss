@@ -1,0 +1,13 @@
+@import 'mat-theme';
+
+body {
+  margin: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@include global-mat-cms-styles;
+@include global-cms-classes;

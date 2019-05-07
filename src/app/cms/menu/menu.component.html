@@ -1,0 +1,14 @@
+<mat-nav-list>
+  <a mat-list-item [routerLink]="['/panel']">
+    <mat-icon>dashboard</mat-icon>
+    <span>Dashboard</span>
+  </a>
+  <a mat-list-item [routerLink]="['/panel/resource']">
+    <mat-icon>view_list</mat-icon>
+    <span>Main resource</span>
+  </a>
+  <a mat-list-item (click)="theme.toggle()">
+    <mat-icon>{{ theme.darkThemeOn ? 'toggle_on' : 'toggle_off' }}</mat-icon>
+    <span>Change theme</span>
+  </a>
+</mat-nav-list>

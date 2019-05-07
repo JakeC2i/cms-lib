@@ -1,0 +1,25 @@
+<h1 mat-dialog-title>
+  {{dialog.title}}
+</h1>
+
+<!-- Simple dialog content -->
+<div mat-dialog-content *ngIf="!portal">
+
+  <p *ngIf="dialog.infoHtml" class="cms-inner-html"
+    [innerHtml]="dialog.infoHtml"
+  ></p>
+
+  <div *ngIf="dialog.textInput">
+    <mat-form-field>
+      <input [placeholder]="dialog.textInput.label" matInput type="text" [(ngModel)]="dialog.textInput.value" autocomplete="off" />
+    </mat-form-field>
+  </div>
+
+</div>
+
+<!-- Portal dialog content -->
+<div mat-dialog-content *ngIf="portal">
+  <ng-template [cdkPortalOutlet]="portal"></ng-template>
+</div>
+
+<cms-dialog-button-set [dialog]="dialog"></cms-dialog-button-set>

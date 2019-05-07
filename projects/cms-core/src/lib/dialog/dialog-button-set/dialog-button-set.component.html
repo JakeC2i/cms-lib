@@ -1,0 +1,37 @@
+<div mat-dialog-actions *ngIf="dialog && dialog.buttonUsage">
+
+  <!-- OK button -->
+  <button
+    *ngIf="dialog.buttonUsage.Ok"
+    mat-raised-button
+    color="primary"
+    [disabled]="dialog.shouldDisableConfirmation ? dialog.shouldDisableConfirmation(dialog) : false"
+    [mat-dialog-close]="Result.Ok"
+  >
+    <span>{{config.translation.dialog.buttonOk}}</span>
+  </button>
+
+  <!-- Yes button -->
+  <button
+    *ngIf="dialog.buttonUsage.Yes"
+    mat-raised-button
+    color="primary"
+    [disabled]="dialog.shouldDisableConfirmation ? dialog.shouldDisableConfirmation(dialog) : false"
+    [mat-dialog-close]="Result.Yes"
+  >{{config.translation.dialog.buttonYes}}</button>
+
+  <!-- No button -->
+  <button
+    *ngIf="dialog.buttonUsage.No"
+    mat-button
+    [mat-dialog-close]="Result.No"
+  >{{config.translation.dialog.buttonNo}}</button>
+
+  <!-- Cancel button -->
+  <button
+    *ngIf="dialog.buttonUsage.Cancel"
+    mat-button
+    [mat-dialog-close]="Result.Cancel"
+  >{{config.translation.dialog.buttonCancel}}</button>
+
+</div>

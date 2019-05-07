@@ -1,0 +1,74 @@
+/**
+      Positioning
+ */
+
+@mixin positioned($position, $top: null, $right: null, $bottom: null, $left: null) {
+  position: $position;
+  @if ($top) {
+    top: $top;
+  }
+  @if ($right) {
+    right: $right;
+  }
+  @if ($bottom) {
+    bottom: $bottom;
+  }
+  @if ($left) {
+    left: $left;
+  }
+}
+@mixin absolute($top: null, $right: null, $bottom: null, $left: null) {
+  @include positioned(absolute, $top, $right, $bottom, $left);
+}
+@mixin fixed($top: null, $right: null, $bottom: null, $left: null) {
+  @include positioned(fixed, $top, $right, $bottom, $left);
+}
+
+/**
+      Flex
+ */
+
+@mixin flex($direction: column) {
+  display: flex;
+  flex-direction: $direction;
+  @content;
+}
+@mixin flex-2-center {
+  @include flex {
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+/**
+      Grid
+ */
+
+@function classic-grid($width, $gutter, $columns, $gutters: auto) {
+  $gut-count: $gutters;
+  @if ($gutters == auto) {
+    $gut-count: $columns - 1;
+  }
+  @return $width * $columns + ($gutter * $gut-count);
+}
+
+@mixin percentage-grid($columns: 2, $margin-percent: 1%) {
+  @if ($columns < 2) {
+    $columns: 2;
+  }
+  width: (100% / $columns) - $margin-percent;
+  margin-right: $margin-percent * 2;
+  &:nth-child(#{$columns}n) {
+    margin-right: 0;
+  }
+}
+@mixin cancel-percentage-grid {
+  width: 100%;
+  margin-right: 0;
+}
+
+/**
+      Typography
+ */
+
+$cms-font-family: Roboto, "Helvetica Neue", sans-serif;

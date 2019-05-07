@@ -1,0 +1,28 @@
+<form *ngIf="form" [formGroup]="form" (submit)="onFormSubmit();">
+  <mat-card>
+    <mat-card-title>Resource</mat-card-title>
+    <mat-card-content>
+      <mat-form-field>
+        <input placeholder="Name" matInput
+               type="text" [formControl]="form.controls['name']"
+               ngDefaultControl />
+      </mat-form-field>
+      <mat-form-field>
+        <input placeholder="Value" matInput
+               type="number" [formControl]="form.controls['value']"
+               ngDefaultControl />
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button type="submit" color="primary" [disabled]="form.invalid">Save</button>
+    </mat-card-actions>
+  </mat-card>
+</form>
+
+<a
+  class="go-back"
+  mat-raised-button
+  [routerLink]="[listRouterLink]"
+>
+  Back to the list
+</a>

@@ -1,0 +1,9 @@
+@mixin mat-nav-list-icon-pad {
+  mat-nav-list {
+    a[mat-list-item] {
+      mat-icon {
+        margin-right: 0.25em;
+      }
+    }
+  }
+}

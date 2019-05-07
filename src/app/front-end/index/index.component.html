@@ -1,0 +1,6 @@
+<p>
+  You're{{(login.loggedIn$() | async) ? '' : ' not'}} logged in
+</p>
+<p>
+  <a [routerLink]="['/panel']">Go to CMS</a>
+</p>
