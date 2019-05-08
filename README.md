@@ -1,5 +1,19 @@
-# CMS Libraries
+# Angular CMS Libraries
 
-Angular libraries:
+## Libraries
 
-* `cms-core`
+### CMS Core
+
+
+#### Installation
+
+In your Angular project:
+
+```
+$ npm i @jchpro/cms-core
+```
+
+#### Documentation
+
+TODO
+
