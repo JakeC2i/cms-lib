@@ -2,18 +2,8 @@
 
 ## Libraries
 
-### CMS Core
+* [CMS Core](projects/cms-core/README.md)
 
 
-#### Installation
 
-In your Angular project:
-
-```
-$ npm i @jchpro/cms-core
-```
-
-#### Documentation
-
-TODO
 
