@@ -18,7 +18,7 @@ In `angular.json` at path `projects.<YOUR-PROJECT>.architect.build.options` add:
 {
   "stylePreprocessorOptions": {
     "includePaths": [
-      "dist/cms-core/lib/styles"
+      "node_modules/@jchpro/cms-core/lib/styles"
     ]
   }
 }
